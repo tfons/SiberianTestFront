@@ -1,0 +1,45 @@
+﻿@page "/ciudades"
+
+@using System.Net.Http
+@using System.Net.Http.Json
+@using SiberianTestFront.Data
+@inject HttpClient Http
+
+<h3>Ciudades</h3>
+
+<a href="/ciudadForm" class="btn btn-info">Nueva Ciudad</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IDCiudad</th>
+            <th>NombreCiudad</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in cities)
+        {
+            <tr>
+                <td>@c._id_ciudad</td>
+                <td>@c._nombre_ciudad</td>
+                <td><a href="/ciudadForm/@c._id_ciudad" class="btn btn-info">Editar</a></td>
+                <td><a href="/eliminarCity/@c._id_ciudad" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@code {
+
+    public List<Ciudad> cities = new List<Ciudad>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        cities = await Http.GetFromJsonAsync<List<Ciudad>>("/api/ciudad/all");
+    }
+
+
+}

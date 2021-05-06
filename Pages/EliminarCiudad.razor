@@ -1,0 +1,29 @@
+﻿@page "/eliminarCity/{id:int}"
+
+<h3>Eliminar Ciudad</h3>
+
+@using SiberianTestFront.Data
+@using System.Net.Http
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+<p>¿Deseas eliminar este elemento?</p>
+<a @onclick="Eliminar" class="btn btn-danger">Eliminar</a>
+<a href="/restaurantes" class="btn btn-warning">Cancelar</a>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private async Task Eliminar()
+    {
+        if (id != 0)
+        {
+            var result = await Http.DeleteAsync("/api/ciudad/delete/" + id);
+        }
+
+
+        navigationManager.NavigateTo("/ciudades");
+    }
+}

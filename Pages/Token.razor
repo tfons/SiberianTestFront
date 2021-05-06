@@ -1,0 +1,39 @@
+﻿@page "/token"
+
+@using System.Net.Http
+@using System.Net.Http.Json
+@using SiberianTestFront.Data
+@using Microsoft.AspNetCore.Http
+@inject HttpClient Http
+
+<h3>Generar Token</h3>
+
+<div class="row mb-3">
+    <div class="col-sm-12">
+        <button @onclick="GenerarToken" class="btn btn-primary">Generar un token de 10 minutos</button>
+    </div>
+</div>
+
+
+<div class="row">
+    @if (token != null)
+    {
+        <label class="col-sm-12">Token generado, copialo</label>
+        <label class="col-sm-12 form-control">@token[0]</label>
+    }
+
+</div>
+
+
+@code {
+
+    List<string> token = null;
+
+    public async Task GenerarToken()
+    {
+
+        token = await Http.GetFromJsonAsync<List<string>>("/api/restaurante/auth");
+
+    }
+
+}

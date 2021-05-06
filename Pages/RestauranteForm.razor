@@ -1,0 +1,85 @@
+﻿@page "/restauranteForm"
+@page "/restauranteForm/{id:int}"
+
+@using SiberianTestFront.Data
+@using System.Net.Http
+@using System.Net.Http.Json
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+<h3>Crear/Editar Restaurante</h3>
+
+<EditForm Model="@res" OnValidSubmit="@Guardar">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="container-fluid">
+        <div class="form-group row">
+            <label class="col-sm-3">Nombre Restaurante</label>
+            <div class="col-sm-9">
+                <InputText class="form-control" @bind-Value="@res._nombre_restaurante"></InputText>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">ID Ciudad</label>
+            <div class="col-sm-9">
+                <InputNumber class="form-control" @bind-Value="@res._id_ciudad"></InputNumber>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">Numero Aforo</label>
+            <div class="col-sm-9">
+                <InputNumber class="form-control" @bind-Value="@res._numero_aforo"></InputNumber>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3">Teléfono</label>
+            <div class="col-sm-9">
+                <InputText class="form-control" @bind-Value="@res._telefono"></InputText>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </div>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+
+    [Parameter]
+    public int id { get; set; }
+
+    Restaurante res = new Restaurante();
+
+    private async Task Guardar()
+    {
+        if(id != 0)
+        {
+            var result = await Http.PutAsJsonAsync<Restaurante>("/api/restaurante/update/", res);
+        }
+        else
+        {
+            var result = await Http.PostAsJsonAsync<Restaurante>("/api/restaurante/insert", res);
+        }
+
+
+        navigationManager.NavigateTo("/restaurantes");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(id != 0)
+        {
+            List<Restaurante> listRes = await Http.GetFromJsonAsync<List<Restaurante>>("/api/restaurante/buscar/" + id);
+
+            res = listRes[0];
+        }
+
+    }
+}

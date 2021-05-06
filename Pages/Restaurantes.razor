@@ -1,0 +1,74 @@
+﻿@page "/restaurantes"
+
+@using System.Net.Http
+@using System.Net.Http.Json
+@using SiberianTestFront.Data
+@inject HttpClient Http
+@inject IJSRuntime JS
+
+<h3>Restaurantes</h3>
+
+<a href="/restauranteForm" class="btn btn-info">Nuevo Restaurante</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>IDRestaurante</th>
+            <th>NombreRestaurante</th>
+            <th>NombreCiudad</th>
+            <th>NumeroAforo</th>
+            <th>Telefono</th>
+            <th>FechaCreacion</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var r in res)
+        {
+            <tr>
+                <td>@r._id_restaurante</td>
+                <td>@r._nombre_restaurante</td>
+                <td>@r._nombre_ciudad</td>
+                <td>@r._numero_aforo</td>
+                <td>@r._telefono</td>
+                <td>@r._fecha_creacion</td>
+                <td><a href="/restauranteForm/@r._id_restaurante" class="btn btn-info">Editar</a></td>
+                <td><a href="/eliminarRes/@r._id_restaurante" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>Array de JS</h3>
+<button @onclick="MostrarLista" class="btn btn-info">Mostrar Array</button>
+
+<div id="myDiv" class="row">
+    @if (dias != null)
+    {
+        @foreach (var dia in dias)
+        {
+            <span class="col-sm-2">@dia</span>
+        }
+    }
+</div>
+
+@code {
+
+    public List<Restaurante> res = new List<Restaurante>();
+    public List<string> dias;
+
+    protected override async Task OnInitializedAsync()
+    {
+        res = await Http.GetFromJsonAsync<List<Restaurante>>("/api/restaurante/all");
+
+    }
+
+    async Task MostrarLista()
+    {
+        var response = await JS.InvokeAsync<List<string>>("myArray");
+
+        dias = response;
+    }
+
+}

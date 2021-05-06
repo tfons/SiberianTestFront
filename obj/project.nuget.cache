@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "vy1jSHolQ9Fs0LBdnq+MZODYdxHWllnRehvCCWttuiM/wgYtAVwJ+BVQQSjetmbem0hrj+ucGrUxe79XWgeojQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tonys\\source\\repos\\SiberianTestFront\\SiberianTestFront\\SiberianTestFront.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tonys\\.nuget\\packages\\blazored.localstorage\\3.0.0\\blazored.localstorage.3.0.0.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.6\\microsoft.aspnetcore.authorization.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.components\\3.1.6\\microsoft.aspnetcore.components.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\3.1.6\\microsoft.aspnetcore.components.analyzers.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\3.1.6\\microsoft.aspnetcore.components.forms.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.components.web\\3.1.6\\microsoft.aspnetcore.components.web.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.aspnetcore.metadata\\3.1.6\\microsoft.aspnetcore.metadata.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.6\\microsoft.extensions.dependencyinjection.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.6\\microsoft.extensions.dependencyinjection.abstractions.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.6\\microsoft.extensions.logging.abstractions.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.extensions.options\\3.1.6\\microsoft.extensions.options.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.6\\microsoft.extensions.primitives.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\microsoft.jsinterop\\3.1.6\\microsoft.jsinterop.3.1.6.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\system.net.http.json\\6.0.0-preview.3.21201.4\\system.net.http.json.6.0.0-preview.3.21201.4.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.3.21201.4\\system.runtime.compilerservices.unsafe.6.0.0-preview.3.21201.4.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\system.text.encodings.web\\6.0.0-preview.3.21201.4\\system.text.encodings.web.6.0.0-preview.3.21201.4.nupkg.sha512",
+    "C:\\Users\\Tonys\\.nuget\\packages\\system.text.json\\6.0.0-preview.3.21201.4\\system.text.json.6.0.0-preview.3.21201.4.nupkg.sha512"
+  ],
+  "logs": []
+}
